@@ -7,7 +7,7 @@ import { IProduct } from './models';
 function App() {
   async function fetchProducts() {
     const response = await axios.get<IProduct[]>(
-      'https://fakestoreapi.com/products'
+      'https://fakestoreapi.com/products?limit=5'
     );
     console.log(response);
   }
