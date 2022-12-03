@@ -1,8 +1,12 @@
 import React from 'react';
 
 export default function CreateProduct() {
+  const submit = (e: React.FormEvent) => {
+    e.preventDefault();
+  };
+
   return (
-    <form>
+    <form onSubmit={submit}>
       <input
         type="text"
         className="border py-2 px-4 mb-2 w-full outline-none"
