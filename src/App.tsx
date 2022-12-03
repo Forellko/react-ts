@@ -1,5 +1,6 @@
 import ErrorMessage from './components/ErrorMessage';
 import Loader from './components/Loader';
+import Modal from './components/Modal';
 import Product from './components/Product';
 import { useProducts } from './hooks/products.hook';
 
@@ -12,6 +13,7 @@ function App() {
       {products.map((product) => (
         <Product key={product.id} product={product} />
       ))}
+      <Modal />
     </div>
   );
 }
