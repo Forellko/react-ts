@@ -24,7 +24,7 @@ function App() {
         <Product key={product.id} product={product} />
       ))}
       {modal && (
-        <Modal title="Create new product">
+        <Modal title="Create new product" onClose={() => setModal(false)}>
           <CreateProduct onCreate={onCreate} />
         </Modal>
       )}
