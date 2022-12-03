@@ -15,7 +15,11 @@ const productData: IProduct = {
   },
 };
 
-export default function CreateProduct() {
+interface CreateProductProps {
+  onCreate: (product: IProduct) => void;
+}
+
+export default function CreateProduct({ onCreate }: CreateProductProps) {
   const [value, setValue] = useState('');
   const [error, setError] = useState('');
 
@@ -33,6 +37,8 @@ export default function CreateProduct() {
       'https://fakestoreapi.com/products',
       productData
     );
+
+    onCreate(response.data);
   };
 
   const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
