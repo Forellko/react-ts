@@ -1,15 +1,19 @@
 import axios from 'axios';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Product from './components/Product';
-import { products } from './data/products';
 import { IProduct } from './models';
 
 function App() {
+  const [products, setProducts] = useState<IProduct[]>([]);
+  const [loading, setLoading] = useState(false);
+
   async function fetchProducts() {
+    setLoading(true);
     const response = await axios.get<IProduct[]>(
       'https://fakestoreapi.com/products?limit=5'
     );
-    console.log(response);
+    setProducts(response.data);
+    setLoading(false);
   }
 
   useEffect(() => {
@@ -18,6 +22,7 @@ function App() {
 
   return (
     <div className="container mx-auto max-w-2xl pt-5">
+      {loading && <p className="text-center">Loading...</p>}
       {products.map((product) => (
         <Product key={product.id} product={product} />
       ))}
