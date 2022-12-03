@@ -9,7 +9,10 @@ export default function CreateProduct() {
         placeholder="Enter product title..."
       />
 
-      <button type="submit" className="py-2 px-4 border bg-yellow-400">
+      <button
+        type="submit"
+        className="py-2 px-4 border bg-yellow-400 hover:text-gray-600"
+      >
         Create
       </button>
     </form>
