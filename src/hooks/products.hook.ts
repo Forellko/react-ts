@@ -9,7 +9,7 @@ export function useProducts() {
   const [error, setError] = useState('');
 
   const addProduct = (product: IProduct) => {
-    setProducts(prev => [...prev, product])
+    setProducts(prev => [product, ...prev])
   }
 
   async function fetchProducts() {
